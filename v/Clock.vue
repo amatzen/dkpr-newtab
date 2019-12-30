@@ -14,6 +14,7 @@
         max-width: 640px;
         margin: 60px auto;
         text-align: center;
+        user-select: none;
         
         p.time {
             font-size: 84pt;
@@ -52,7 +53,7 @@ export default {
         
         setInterval(() => {
             this.updateClock()
-        }, 500);
+        }, 200);
     }
 }
 </script>

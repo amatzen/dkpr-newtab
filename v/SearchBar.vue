@@ -12,6 +12,7 @@
         padding: 1rem;
         border-radius: 5px;
         position: relative;
+        box-shadow: 0 5px 7px rgba(0, 0, 0, 0.41);
 
         &::after {
             content: " ";
@@ -42,8 +43,6 @@
 </style>
 
 <script>
-import autoComplete from "@tarekraafat/autocomplete.js";
-
 export default {
     name: 'SearchBar',
     mounted() {

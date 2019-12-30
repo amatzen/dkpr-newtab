@@ -2,6 +2,7 @@
   max-width: 640px;
   margin: 60px auto;
   text-align: center;
+  user-select: none;
 }
 .clock p.time[data-v-4b118a] {
   font-size: 84pt;
@@ -21,6 +22,7 @@
   padding: 1rem;
   border-radius: 5px;
   position: relative;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.41);
 }
 .searchbar[data-v-b67172]::after {
   content: " ";
@@ -47,6 +49,47 @@
   background: transparent;
   z-index: 2;
 }
+.cal-item[data-v-bc5e64] {
+  padding: 0;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+}
+.cal-item p.title[data-v-bc5e64] {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.cal-item p[data-v-bc5e64]:not(.title) {
+  margin-top: 5px;
+}
+.news-item[data-v-b18ad8] {
+  width: 100%;
+  padding: 0.8em 0;
+  display: grid;
+  grid-template: "image content";
+  grid-template-columns: 50px auto;
+  grid-column-gap: 20px;
+}
+.news-item .image[data-v-b18ad8] {
+  grid-area: image;
+}
+.news-item .image img[data-v-b18ad8] {
+  width: 100%;
+}
+.news-item .content p.news-title[data-v-b18ad8] {
+  font-weight: bold;
+  margin-top: 0;
+}
+a[data-v-b18ad8] {
+  color: #000;
+  text-decoration: none;
+}
+a[data-v-b18ad8]:hover {
+  color: #262626;
+  text-decoration: underline;
+}
+p.small[data-v-b18ad8] {
+  font-size: 8pt;
+}
 @import url("https://use.typekit.net/mnd2kfz.css");
 * {
   box-sizing: border-box;
@@ -54,21 +97,49 @@
 
 html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 body {
+  padding-left: 15px;
+  padding-right: 15px;
   background: #000;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("https://source.unsplash.com/random/1920x1080");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   color: #fff;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   font-weight: 400;
   font-style: normal;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }.wrapper[data-v-846615] {
-  max-width: 960px;
+  max-width: 1400px;
   width: 100%;
-  margin: 50px auto;
+  margin: 0 auto;
 }
 .sb[data-v-846615] {
   margin: 0 auto;
+}
+.grid-3[data-v-846615] {
+  margin-top: 100px;
+  display: grid;
+  grid-template: "column column column";
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-template-rows: auto;
+}
+.grid-3 .card[data-v-846615] {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  padding-bottom: 2rem;
+  color: #000;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.41);
 }
