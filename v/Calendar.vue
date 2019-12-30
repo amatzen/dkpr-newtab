@@ -42,30 +42,22 @@ export default {
             var data = r.data
 
             var pdata = ical.parseICS(data)
-            console.log(pdata)
 
             var i=0;
             for (let k in pdata) {
                 if (pdata.hasOwnProperty(k)) {
                     var ev = pdata[k];
                     if (pdata[k].type == 'VEVENT') {
-                        if (i < 3) {
-                            i++;
-                            this.cal.push({
-                                title: ev.summary,
-                                start: moment(ev.start.toISOString()).format('LL LT'),
-                                end: moment(ev.end.toISOString()).format('LL LT')
-                            })
-                        } else {
-                            return;
-                        }
+                        this.cal.unshift({
+                            title: ev.summary,
+                            start: moment(ev.start.toISOString()).format('LL LT'),
+                            end: moment(ev.end.toISOString()).format('LL LT')
+                        })
                     }
                 }
             }
-            /*
-            ical.parseICS(data, {}, function (err, data) {
-            });
-            */
+        }).then (() => {
+            this.cal = this.cal.slice(0,3)
         })
 
     }    

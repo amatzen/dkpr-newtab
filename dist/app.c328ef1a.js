@@ -110091,7 +110091,6 @@ var _default = {
     axios.get('https://backend.amatzen.dk/assorted/calendar.php').then(function (r) {
       var data = r.data;
       var pdata = ical.parseICS(data);
-      console.log(pdata);
       var i = 0;
 
       for (var k in pdata) {
@@ -110099,25 +110098,16 @@ var _default = {
           var ev = pdata[k];
 
           if (pdata[k].type == 'VEVENT') {
-            if (i < 3) {
-              i++;
-
-              _this.cal.push({
-                title: ev.summary,
-                start: moment(ev.start.toISOString()).format('LL LT'),
-                end: moment(ev.end.toISOString()).format('LL LT')
-              });
-            } else {
-              return;
-            }
+            _this.cal.unshift({
+              title: ev.summary,
+              start: moment(ev.start.toISOString()).format('LL LT'),
+              end: moment(ev.end.toISOString()).format('LL LT')
+            });
           }
         }
       }
-      /*
-      ical.parseICS(data, {}, function (err, data) {
-      });
-      */
-
+    }).then(function () {
+      _this.cal = _this.cal.slice(0, 3);
     });
   }
 };
